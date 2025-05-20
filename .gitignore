@@ -1,0 +1,30 @@
+# === Python / Django ===
+*.pyc
+__pycache__/
+env/
+*.sqlite3
+*.log
+.DS_Store
+
+# Environment variables
+.env
+
+# === Node / React ===
+node_modules/
+dist/
+.vite/
+
+# === OS / Editor Files ===
+*.swp
+*.swo
+.vscode/
+.idea/
+.DS_Store
+
+# === Build Files ===
+*.egg-info/
+*.coverage
+coverage/
+
+# === Mac Finder folder files ===
+Icon?
