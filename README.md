@@ -30,7 +30,7 @@ CI/CD with GitHub Actions
 
 ---
 
-##👤 Author
+## 👤 Author
 
 Elisa Holland
 Freelance Web Developer & Computer Science Graduate
