@@ -1,11 +1,18 @@
 from django.db import models
 
-# Create your models here.
-from mongoengine import Document, StringField, DateTimeField
-import datetime
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
 
-class Article(Document):
-    title = StringField(required=True)
-    content = StringField(required=True)
-    created_at = DateTimeField(default=datetime.datetime.utcnow)
+    def __str__(self):
+        return self.name
+
+class Article(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    tags = models.ManyToManyField(Tag, blank=True)
+
+    def __str__(self):
+        return self.title
+
 

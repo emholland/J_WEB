@@ -4,5 +4,5 @@ from .views import ArticleList
 #makes urls for ../backend/urls.py 
 
 urlpatterns = [
-    path('articles/', ArticleList.as_view()),
+    path('articles/', ArticleList.as_view(), name='article-list'),
 ]
