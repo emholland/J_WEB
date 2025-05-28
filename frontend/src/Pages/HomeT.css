@@ -1,0 +1,240 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.homepage {
+  height: 100vh; /* ✅ ensures it stops at viewport height */
+  background-image: url("../assets/HomeBackground.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 100vh;
+  font-family: 'Arial Black', sans-serif;
+  position: relative;
+  overflow: hidden; /* Prevents overflow issues */
+}
+
+.top-nav {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  gap: 30px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 1000; /* <-- increase to guarantee it's on top */
+}
+
+
+.top-nav span {
+  cursor: pointer;
+}
+
+.top-nav span:hover {
+  color: #CD0600;
+}
+
+.main-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;  /* ✅ horizontally center */
+  padding: 0 1rem;           /* ✅ horizontal breathing room */
+  padding-right: 5rem;
+  box-sizing: border-box;
+}
+
+.main-content {
+  margin-top: 120px;
+  margin-left: 3rem;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  justify-content: center;
+}
+
+.intro-text {
+  color: #EBEBEB;
+  font-size: 1.1rem;
+  text-decoration: underline;
+  margin-bottom: 0.2rem;
+}
+
+.bull-title {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-weight: bolder;
+  font-size: 7rem;
+  color: #CD0600;
+  margin: 0;
+  z-index: 2;
+}
+
+.arm-image {
+  position: absolute;
+  right: 0;                      /* ✅ anchors to the right edge */
+  z-index: 1;                   /* ✅ behind content */
+  height: clamp(150px, 52vw, 1000px);  /* ✅ responsive size */
+  transform: translate(0%, -20%);
+  pointer-events: none;
+}
+
+
+.mid-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch; /* ✅ this makes all child elements match height */
+  gap: clamp(1rem, 4vw, 3rem);
+  margin-top: 5vh;
+  flex-wrap: wrap;
+}
+
+
+.full-text{
+  display: flex;
+  flex-direction: row;   /* default, items laid out left to right */
+  align-items: stretch;
+  gap: .7rem;             /* space between items */
+}
+
+
+.red-box {
+  z-index: 0;
+  background-color: #CD0600;
+  border-radius: 4%;
+  width: clamp(220px, 30vw, 500px); /* increased all bounds by 10% */
+  padding:3.5rem;                  /* increased padding */
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.real-text-block {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;   /* align items to the right */
+  justify-content: center;
+  text-align: right;       /* align text inside elements to the right */
+}
+
+
+
+.real-text {
+  z-index:10;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 6rem);
+  color: #EBEBEB;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.05cap;
+  word-spacing: 0.6cap;
+  margin-bottom: -1.2rem;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;  
+  max-width: 60vw;
+  text-align: left;
+}
+
+.tagline p {
+  font-family: 'Dm Sans', 'Arial', sans-serif;
+  font-size: clamp(.8rem, 2vw, 1.2rem);
+  font-weight: 300;
+  color: #EBEBEB;
+  margin: 0;
+}
+
+/* Stack columns vertically on smaller screens */
+@media (max-width: 600px) {
+
+  .homepage{
+    justify-content: center;
+  }
+  .main-wrapper {
+    justify-content: center;   /* ✅ center content horizontally */
+    padding-left: 1rem;        /* remove large left offset */
+    padding-right: 1rem;       /* add breathing room on both sides */
+  }
+   .bull-title {
+    display: flex;
+    text-align: center;
+    font-size: 5rem;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+  .main-content {
+    margin-left: 0;
+    margin-top: 5rem;
+  }
+
+  .top-nav {
+    position: static;         /* Remove absolute positioning */
+    justify-content: center;  /* Center the nav items */
+    flex-wrap: nowrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+
+  .full-text {
+    margin-top:0rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /* ✅ center the pair as a group */
+    gap: .5rem;
+    flex-wrap: nowrap; /* ✅ keeps side-by-side even on mobile */
+  }
+
+.red-box{
+  width: 100%;
+  padding-right: 20vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content inside the red box */
+}
+
+
+  .real-text-block{ 
+    margin-right: -4rem;;
+    align-items: flex-end;   /* align items to the right */
+    justify-content: center;
+    text-align: right;       /* align text inside elements to the right */
+  }
+
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;  
+    max-width: 60vw;
+    text-align: left;
+}
+
+   .tagline p {
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .arm-image {
+      display: none; /* ✅ completely hides arm on mobile */
+    }
+}
