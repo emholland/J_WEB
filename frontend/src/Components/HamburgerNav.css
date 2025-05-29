@@ -1,0 +1,73 @@
+/* Navbar wrapper */
+.navbar {
+  background-color: #fff;
+  color: #000;
+  font-family: 'Arial Black', sans-serif;
+  padding: 0px 20px;
+  border-bottom: 4px solid #d5242c;
+  position: relative;
+  z-index: 999;
+}
+
+/* Container for logo and icon */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Site title */
+.logo {
+  font-size: 2.5rem;
+  color: #d5242c;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -1px;
+  cursor: pointer;
+}
+
+/* Hamburger button */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Dropdown menu — aligned right */
+.dropdown {
+  list-style: none;
+  margin: 0;
+  padding: 1rem 0;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 40px;
+  background-color: #fff;
+  border: 2px solid #d5242c;
+  width: max-content;
+  padding-right: 20px;
+  padding-left: 20px;
+  text-align: right;
+}
+
+/* Show dropdown when triggered */
+.dropdown.show {
+  display: flex;
+}
+
+/* Dropdown items */
+.dropdown li {
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+.dropdown li:hover {
+  color: #d5242c;
+}
+
