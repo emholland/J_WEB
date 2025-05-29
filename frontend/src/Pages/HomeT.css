@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 body, html {
   margin: 0;
   padding: 0;
@@ -66,7 +69,10 @@ body, html {
 }
 
 .bull-title {
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  /*font-family: 'Helvetica', 'Arial', sans-serif;*/
+  font-family: 'Rubik Mono One', sans-serif;
+  word-spacing: -.5cap;
+  /*font-family: "Staatliches", sans-serif;*/
   font-weight: bolder;
   font-size: 7rem;
   color: #CD0600;
