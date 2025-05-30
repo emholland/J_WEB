@@ -18,7 +18,7 @@ export default function HomeT() {
 <div className="main-wrapper">
       <div className="main-content">
         <p className="intro-text">Hi, this is</p>
-        <h1 className="bull-title">BULL REVIEW</h1>
+        <h1 className="bull-title">MANTIS REVIEW</h1>
 
         <div className="mid-section">
           <div className='plus-tagline'>

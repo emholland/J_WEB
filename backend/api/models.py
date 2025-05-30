@@ -8,6 +8,8 @@ class Tag(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
+    description = models.CharField(max_length=1000)
+    picture = models.ImageField(upload_to='articles/')
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField(Tag, blank=True)
