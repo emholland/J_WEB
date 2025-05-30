@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+/* ===== Fonts ===== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700&display=swap');
 
+/* ===== Base Styles ===== */
 body, html {
   margin: 0;
   padding: 0;
@@ -9,238 +10,217 @@ body, html {
   overflow-x: hidden;
 }
 
+/* ===== Homepage Container ===== */
 .homepage {
-  height: 100vh; /* ✅ ensures it stops at viewport height */
-  background-image: url("../assets/HomeBackground.jpg");
-  background-size: cover;
-  background-position: center;
-  color: white;
+  height: 100vh;
   min-height: 100vh;
+  background: url("../assets/HomeBackground.jpg") center / cover no-repeat;
   font-family: 'Arial Black', sans-serif;
+  color: #F0F0F0;
   position: relative;
-  overflow: hidden; /* Prevents overflow issues */
+  overflow: hidden;
+  padding: 40px;
 }
 
-.top-nav {
+/* ===== Navigation ===== */
+.header {
+  display: flex;
+  justify-content: space-between; /* logo left, nav right */
+  align-items: flex-start; /* align logo and nav to the top */
+  padding: 30px 40px; /* top/bottom and left/right spacing */
   position: absolute;
-  top: 30px;
-  right: 40px;
-  display: flex;
-  gap: 30px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  z-index: 1000; /* <-- increase to guarantee it's on top */
-}
-
-
-.top-nav span {
-  cursor: pointer;
-}
-
-.top-nav span:hover {
-  color: #CD0600;
-}
-
-.main-wrapper {
   width: 100%;
-  display: flex;
-  justify-content: center;  /* ✅ horizontally center */
-  padding: 0 1rem;           /* ✅ horizontal breathing room */
-  padding-right: 5rem;
+  top: 0;
+  left: 0;
+  z-index: 1000;
   box-sizing: border-box;
 }
 
-.main-content {
-  margin-top: 120px;
-  margin-left: 3rem;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Align items to the left */
-  justify-content: center;
+.home-logo {
+  padding-top:1rem;
+  margin-top:-4%;
+  font-family: "Century Expanded", "Georgia", "Times New Roman", serif;
+  font-size: 7rem;
+  font-style: italic;
+  color: #551629;
 }
 
+.top-nav {
+  padding-top: 1rem;
+  padding-right: 2rem;
+  display: flex;
+  gap: 4rem;
+  font-size: 3rem;
+}
+
+.top-nav span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: .2rem;;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #E6E3DE;
+}
+
+.top-nav span:hover {
+  color: #551629;
+}
+
+
+/* ===== Main Content ===== */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+
+  justify-content: center;
+  margin-top: 150px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 5;
+}
+
+.title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: -20%;
+  padding-left: 2rem;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+
 .intro-text {
-  color: #EBEBEB;
-  font-size: 1.1rem;
+  font-family: 'DM Sans', sans-serif;
+  padding-left: 3rem;
+  font-size: 1.5rem;
   text-decoration: underline;
   margin-bottom: 0.2rem;
+  color: #E6E3DE;
 }
 
 .bull-title {
-  /*font-family: 'Helvetica', 'Arial', sans-serif;*/
-  font-family: 'Rubik Mono One', sans-serif;
-  word-spacing: -.5cap;
-  /*font-family: "Staatliches", sans-serif;*/
+  padding-left: 3rem;
+  font-family: "Century Expanded", "Georgia", "Times New Roman", serif;
+  font-size: 8rem;
   font-weight: bolder;
-  font-size: 7rem;
-  color: #CD0600;
+  font-style: italic;
   margin: 0;
   z-index: 2;
+  color: #E6E3DE;
 }
 
+/* ===== Arm Image ===== */
 .arm-image {
   position: absolute;
-  right: 0;                      /* ✅ anchors to the right edge */
-  z-index: 1;                   /* ✅ behind content */
-  height: clamp(150px, 52vw, 1000px);  /* ✅ responsive size */
+  right: 0;
+  z-index: 1;
+  height: clamp(10px, 52vw, 1000px);
   transform: translate(0%, -20%);
   pointer-events: none;
 }
 
-
+/* ===== Mid Section Layout ===== */
 .mid-section {
   display: flex;
   justify-content: flex-start;
-  align-items: stretch; /* ✅ this makes all child elements match height */
+  align-items: stretch;
   gap: clamp(1rem, 4vw, 3rem);
   margin-top: 5vh;
   flex-wrap: wrap;
 }
 
-
-.full-text{
-  display: flex;
-  flex-direction: row;   /* default, items laid out left to right */
-  align-items: stretch;
-  gap: .7rem;             /* space between items */
-}
-
-
+/* ===== Red Box & Text ===== */
 .red-box {
-  z-index: 0;
-  background-color: #CD0600;
-  border-radius: 4%;
-  width: clamp(220px, 30vw, 500px); /* increased all bounds by 10% */
-  padding:3.5rem;                  /* increased padding */
-  height: auto;
+  background-color: #551629;
+  position: absolute;
+  left: max(-40px, -5vw); /* keeps it off the left edge without hard overflow */
+  width: clamp(200px, 58vw, 1200px); /* scales between small and large screens */
+  padding: clamp(2rem, 10vw, 7rem) clamp(2rem, 10vw, 7rem) clamp(2rem, 10vw, 7rem) clamp(4rem, 20vw, 14rem);
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  z-index: 0;
+  box-sizing: border-box;
 }
 
-.real-text-block {
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;   /* align items to the right */
-  justify-content: center;
-  text-align: right;       /* align text inside elements to the right */
-}
-
-
-
-.real-text {
-  z-index:10;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: clamp(2.2rem, 5.5vw, 6rem);
-  color: #EBEBEB;
-  white-space: nowrap;
-  margin: 0;
-  padding: 0;
-  letter-spacing: -0.05cap;
-  word-spacing: 0.6cap;
-  margin-bottom: -1.2rem;
-}
-
-.right-side {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;  
-  max-width: 60vw;
-  text-align: left;
-}
 
 .tagline p {
-  font-family: 'Dm Sans', 'Arial', sans-serif;
-  font-size: clamp(.8rem, 2vw, 1.2rem);
-  font-weight: 300;
-  color: #EBEBEB;
+  text-align: right;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(1rem, 4vw, 2.5rem); /* clean, scalable range */
+  letter-spacing: .01rem;
+  font-weight: 300; 
+  color: #E6E3DE;;
   margin: 0;
 }
 
-/* Stack columns vertically on smaller screens */
-@media (max-width: 600px) {
 
-  .homepage{
+/* ===== Responsive Styles ===== */
+@media (max-width: 600px) {
+  .homepage {
     justify-content: center;
-  }
-  .main-wrapper {
-    justify-content: center;   /* ✅ center content horizontally */
-    padding-left: 1rem;        /* remove large left offset */
-    padding-right: 1rem;       /* add breathing room on both sides */
-  }
-   .bull-title {
-    display: flex;
-    text-align: center;
-    font-size: 5rem;
-    width: 100%;
-    flex-wrap: nowrap;
-  }
-  .main-content {
-    margin-left: 0;
-    margin-top: 5rem;
   }
 
   .top-nav {
-    position: static;         /* Remove absolute positioning */
-    justify-content: center;  /* Center the nav items */
+    position: static;
+    justify-content: center;
     flex-wrap: nowrap;
     gap: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     width: 100%;
     text-align: center;
   }
 
+  .bull-title {
+    font-size: 5rem;
+    text-align: center;
+    width: 100%;
+    flex-wrap: nowrap;
+    display: flex;
+  }
+
+  .main-content {
+    justify-content: center;
+    padding-right: 1rem;
+    margin-top: 5rem;
+    margin-left: 0;
+  }
 
   .full-text {
-    margin-top:0rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center; /* ✅ center the pair as a group */
-    gap: .5rem;
-    flex-wrap: nowrap; /* ✅ keeps side-by-side even on mobile */
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    margin-top: 0;
   }
 
-.red-box{
-  width: 100%;
-  padding-right: 20vw;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Center content inside the red box */
-}
-
-
-  .real-text-block{ 
-    margin-right: -4rem;;
-    align-items: flex-end;   /* align items to the right */
+  .red-box {
+    width: 100%;
+    padding-right: 20vw;
     justify-content: center;
-    text-align: right;       /* align text inside elements to the right */
   }
 
-  .right-side {
-    display: flex;
-    flex-direction: column;
+  .real-text-block {
+    margin-right: -4rem;
+    align-items: flex-end;
     justify-content: center;
-    align-items: flex-start;  
-    max-width: 60vw;
-    text-align: left;
-}
+    text-align: right;
+  }
 
-   .tagline p {
+  .tagline p {
     text-align: center;
     margin-top: 1rem;
   }
 }
 
-
 @media (max-width: 400px) {
   .arm-image {
-      display: none; /* ✅ completely hides arm on mobile */
-    }
+    display: none;
+  }
 }

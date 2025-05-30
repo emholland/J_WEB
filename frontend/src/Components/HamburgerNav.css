@@ -18,12 +18,10 @@
 
 /* Site title */
 .logo {
-  font-size: 2.5rem;
-  color: #d5242c;
-  text-transform: uppercase;
-  font-weight: 900;
-  letter-spacing: -1px;
-  cursor: pointer;
+  font-family: "Century Expanded", "Georgia", "Times New Roman", serif;
+  font-size: 10rem;
+  font-style: italic;
+  color: #F0F0F0;
 }
 
 /* Hamburger button */
