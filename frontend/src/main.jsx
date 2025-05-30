@@ -6,6 +6,7 @@ import HomeT from './Pages/HomeT'; // if you want to use the Home2 component
 import Articles from './Pages/Articles'; // make sure path matches
 import AuthorInfo from './Pages/AuthorInfo';
 import ResourcePage from './Pages/Resources';
+import ArticlePage from './Pages/ArticlePage';
 import './index.css'; // your global styles
 
 
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/articles" element={<Articles />} />
         <Route path="/authorinfo" element={<AuthorInfo />} />
         <Route path="/resources" element={<ResourcePage />} />
+        <Route path="/articles/:id" element={<ArticlePage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

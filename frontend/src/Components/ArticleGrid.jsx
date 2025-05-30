@@ -1,10 +1,14 @@
 // ArticleGrid.jsx
 import React from 'react';
 import './ArticleGrid.css';
+import { useNavigate } from 'react-router-dom';
 
 const sizePattern = ['card-large', 'card-medium', 'card-small', 'card-medium', 'card-small'];
 
 export default function ArticleGrid({ articles, gridTitle }) {
+
+      const navigate = useNavigate();
+      
   return (
     <div className="tagged-articles-grid">
       {gridTitle && (
@@ -17,7 +21,7 @@ export default function ArticleGrid({ articles, gridTitle }) {
        {articles.map((article, index) => {
         const sizeClass = sizePattern[index % sizePattern.length];
         return (
-            <div key={article.id} className={`highlight-card ${sizeClass}`}>
+            <div key={article.id} className={`highlight-card ${sizeClass}`} onClick={() => navigate(`/articles/${article.id}`)}>
             {article.picture && (
                 <img src={article.picture} alt={article.title} className="article-image" />
             )}

@@ -2,6 +2,9 @@ import './Articles.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HamburgerNav from '../Components/HamburgerNav';
+import ArticleGrid from '../Components/ArticleGrid';
+
+
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -54,25 +57,8 @@ export default function Articles() {
       <HamburgerNav />
 
       {/* Highlighted Articles Section */}
-      <div className="highlighted-articles-page">
-        <div className="page-name">
-          <h1 className="site-title">Highlighted Articles</h1>
-        </div>
+     <ArticleGrid articles={highlights} gridTitle="Highlighted Articles" />
 
-        <main className="highlight-grid">
-          {highlights.map(article => (
-            <div key={article.id} className="highlight-card">
-              <h2 className="highlight-title">{article.title}</h2>
-              <p className="highlight-content">{article.content}</p>
-              <div className="highlight-tags">
-                {article.tags.map(tag => (
-                  <span key={tag.id} className="highlight-tag">{tag.name}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </main>
-      </div>
 
       {/* General Articles Section */}
       <div className="page-name">
@@ -102,14 +88,22 @@ export default function Articles() {
 
       <main className="articles-container">
         {filteredArticles.map(article => (
-          <div key={article.id} className="article-card">
-            <h2 className="article-title">{article.title}</h2>
-            <p className="article-content">{article.content}</p>
-            <div className="tag-list">
+          <div key={article.id} className="article-card" onClick={() => navigate(`/articles/${article.id}`)}>
+           <div className="side-by-side">
+              {article.picture && (
+                  <img src={article.picture} alt={article.title} className="article-image" />
+              )}
+              <div className="article-info">
+                <h2 className="article-title">{article.title}</h2>
+                <p className="article-content">{article.description}</p>
+                <div className="tag-list">
               {article.tags.map(tag => (
                 <span key={tag.id} className="tag">{tag.name}</span>
               ))}
             </div>
+              </div>
+            </div>
+            
           </div>
         ))}
       </main>
