@@ -1,8 +1,9 @@
 // ArticlePage.jsx
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './Articles.css';
-import HamburgerNav from '../Components/HamburgerNav';
+import './ArticlePage.css';
+import LogoHeader from '../Components/LogoHeader'; // Assuming you have a LogoHeader component
+import SubscribeBox from '../Components/SubscribeBox';
 
 export default function ArticlePage() {
   const { id } = useParams(); // from route like /articles/:id
@@ -19,17 +20,27 @@ export default function ArticlePage() {
 
   return (
     <div className="article-detail-page">
-        <HamburgerNav />
+        <LogoHeader />
+        <div className="articlepage-article">
       {article.picture && (
-        <img src={article.picture} alt={article.title} className="article-image" />
+        <img src={article.picture} alt={article.title} className="articlepage-image" />
       )}
-      <h1 className="article-title">{article.title}</h1>
-      <p className="article-content">{article.content}</p>
-      <div className="tag-list">
-        {article.tags.map(tag => (
-          <span key={tag.id} className="tag">{tag.name}</span>
-        ))}
+      <div className="article-header-row">
+        <div className="article-title-author">
+          <h1 className="articlepage-title">{article.title}</h1>
+          <div className="articlepage-author">Author Name</div>
+        </div>
+        <div className="articlepage-tag-list">
+          {article.tags.map(tag => (
+            <span key={tag.id} className="tag">{tag.name}</span>
+          ))}
+        </div>
       </div>
+
+      <p className="articlepage-content">{article.content}</p>
+      
+      </div>
+      <SubscribeBox />
     </div>
   );
 }
