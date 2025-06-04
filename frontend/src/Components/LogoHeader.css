@@ -1,0 +1,52 @@
+.top-nav {
+  width: 100%;
+  background: #fdfdfb;
+}
+
+.nav-inner {
+  width: 95%;
+  margin: 0 auto;
+  border-bottom: 3px solid #691d34;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:.02rem;
+  font-weight: bold;
+  color: #5c1126;
+  font-size: clamp(0.7rem, 3vw, 2rem);
+  cursor: pointer;
+}
+
+.nav-menu > span {
+  flex: 1 1 auto; /* allow to shrink */
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* Optional: structure left/right grouping if used */
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: clamp(0.5rem, 2vw, 2rem);
+}
+
+/* Logo */
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 100;
+    font-size: clamp(1.5rem, 6vw, 6rem);
+    padding: 0 clamp(0rem, 1vw, 1.5rem);
+
+}
+
+
