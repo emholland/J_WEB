@@ -5,12 +5,14 @@
   }
 
   .site-title {
-    color: #d5242c;
-    font-size: 2.5rem;
-    margin: 0;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -1px;
+   font-family: 'DM Sans', sans-serif;
+  font-weight: 900;         /* Extra bold */
+  font-size: 2rem;          /* Adjust size as needed */
+  color: #5c1126;           /* Deep maroon */
+  text-transform: uppercase;
+  margin: 1rem 0;
+  letter-spacing: 0.05rem;
+
   }
 
   .resource-header {

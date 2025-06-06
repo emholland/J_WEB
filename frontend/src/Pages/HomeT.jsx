@@ -35,8 +35,9 @@ export default function HomeT() {
 
         <div className="about-content">
           <p>
-            LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISCING ELIT.
-            ETIAM SOLLICITUDIN LAOREET COMMODO. PRAESENT AT MALESUADA VELIT, AC IMPERDIET ODIO. MAECENAS A SEM ET JUSTO ULLAMC...
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin laoreet commodo. Praesent at malesuada velit, ac imperdiet odio. Maecenas a sem et justo ullamcorper pellentesque sed quis sapien.
+Vivamus porta eros ut tellus tincidunt euismod. Proin ornare vulputate sapien, in rutrum risus tempus pretium. Pellentesque sed erat sed nisl ullamcorper porttitor sit amet in dolor. Nulla facilisi.
+Proin turpis odio, mattis aliquam arcu in, dapibus varius sapien. Morbi accumsan tellus ut lobortis commodo. Vestibulum non enim porttitor, molestie leo sit amet, fringilla erat. Nulla vulputate egestas mattis. Suspendisse sollicitudin aliquam nunc, eget venenatis ex accumsan eget. Nunc tempus aliquam dui et finibus.
           </p>
         </div>
       </section>
