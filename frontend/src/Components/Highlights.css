@@ -1,0 +1,132 @@
+.highlight-articles-container{
+  padding: 2rem;
+  background-color: #fdfdfb;
+}
+
+.highlight-border-container{
+  width:100%;
+  display:flex;
+  justify-content: center;;
+}
+.highlight-articles-border{
+  width: 100%;
+  border-bottom: 6px solid #691d34;
+  padding: 1rem;
+  background-color: #fdfdfb;
+}
+
+
+.highlight-dropdown {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.highlight-dropdown-title{
+   font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: #691d34;
+    letter-spacing: 0.34rem;
+    margin: 2rem 2rem 2rem 1rem;
+    text-transform: uppercase;
+}
+
+.highlight-arrow {
+  font-size: 1.5rem;
+  margin-right: 0.3rem;
+  margin-left: 2rem;
+}
+
+/* Wrapper for entire grid area */
+.highlight-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 3fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+/* Position-specific grid areas */
+.tall-left {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.big-center {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.small-right-top {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.small-right-bottom {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* General card styling */
+.highlight-card {
+  background: #fdfdfb;
+  border: 2px solid #320412;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Georgia', serif;
+  cursor: pointer;
+}
+
+.highlight-card:hover {
+  box-shadow: 0 0 1px #691d34 !important;
+  border: 2px solid #691d34 !important;
+  transform: scale(1.02);
+}
+
+/* Article image */
+.article-image {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+/* Title styling */
+.highlight-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #320412;
+}
+
+/* Description */
+.highlight-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-family: 'Times New Roman', serif;
+}
+
+.highlight-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.highlight-tag {
+  font-size: 0.7rem;
+  padding: 4px 10px;
+  border: 1px solid #6f1a33;
+  color: #6f1a33;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

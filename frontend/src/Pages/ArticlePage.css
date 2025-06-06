@@ -1,0 +1,91 @@
+/* Article detail layout */
+.article-detail-page {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  font-family: 'DM Sans', sans-serif;
+  background: #fdfdfb;
+  color: #000;
+}
+
+.articlepage-article{
+    margin-top:1rem;
+}
+
+/* Main article image */
+.articlepage-image {
+    
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 2rem;
+    border: 2px solid #691d34;
+}
+
+/* Row for title, author, and tags */
+.article-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Left side: title and author */
+.article-title-author {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Title */
+.articlepage-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Author under title */
+.articlepage-author {
+  color: #691d34;
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+/* Tag list aligned right */
+.articlepage-tag-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Individual tag */
+.tag {
+  border: 2px solid #691d34;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  color: #000;
+  font-weight: 500;
+  background: white;
+}
+
+/* Main content text */
+.articlepage-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .article-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .articlepage-tag-list {
+    justify-content: flex-start;
+  }
+}

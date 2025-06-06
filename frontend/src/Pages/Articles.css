@@ -9,124 +9,95 @@
   margin: 0;
 }
 
+.articles-header {
+  display: flex;
+  justify-content: space-between; /* or 'start' / 'center' depending on your layout */
+  align-items: center;
+  flex-wrap: wrap; /* optional: lets them wrap on smaller screens */
+  gap: 1vw; /* space between elements */
+}
+
+
 /* ------------------------------------ */
 /* Page Section Headers */
 /* ------------------------------------ */
 .page-name {
-  padding: 30px 40px 10px;
-  border-top: 3px solid #000;
-  border-bottom: 3px solid #000;
-  margin-top: 40px;
-}
-
-.site-title {
-  font-size: 2.4rem;
-  color: #d5242c;
-  margin: 0;
+ font-family: 'DM Sans', sans-serif;
+  font-weight: 900;         /* Extra bold */
+  font-size: 2rem;          /* Adjust size as needed */
+  color: #5c1126;           /* Deep maroon */
   text-transform: uppercase;
-  letter-spacing: -1px;
-  font-weight: 900;
-  font-family: 'Arial Black', sans-serif;
+  margin: 1rem 1rem 1rem 2rem;
+  letter-spacing: 0.05rem;
+
 }
 
-/* ------------------------------------ */
-/* Highlighted Articles — Grid Layout */
-/* ------------------------------------ */
-.highlight-grid {
-  padding: 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.highlight-card {
-  background-color: #fff;
-  border: 1px solid #000;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s ease;
-}
-
-.highlight-card:hover {
-  border: 1px solid red;
-  color: #d5242c;
-  transform: translateY(-4px);
-}
-
-.highlight-card:hover h2,
-.highlight-card:hover p {
-  color: #d5242c;
-}
-
-.highlight-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+.article-page-title {
+ font-family: 'DM Sans', sans-serif;
+  font-weight: 900;         /* Extra bold */
+  font-size: 5vw;          /* Adjust size as needed */
+  color: #5c1126;           /* Deep maroon */
   text-transform: uppercase;
-  margin-bottom: 12px;
-  color: #000;
+  margin: 1rem 0;
+  letter-spacing: 0.05rem;
+
 }
 
-.highlight-content {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 12px;
-  font-family: 'Times New Roman', serif;
-}
 
-.highlight-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
 
-.highlight-tag {
-  font-size: 0.7rem;
-  padding: 4px 10px;
-  border: 1px solid #d5242c;
-  color: #d5242c;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+
+
 
 /* ------------------------------------ */
 /* Tag Filter Section */
 /* ------------------------------------ */
 .tag-filter {
-  padding: 30px 40px 0;
-  font-family: sans-serif;
-}
-
-.tag-buttons {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
+  align-items: center;
+  gap: 2vw;
+  margin: 2rem 0;
+  margin-right: 10vw;
 }
 
-.tag-button,
-.clear-tag-button {
-  padding: 6px 14px;
-  border: 2px solid #000;
-  background-color: #fff;
-  color: #000;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 0.8rem;
+.tag-title {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #551629; /* deep maroon */
+}
+
+.tag-buttons-wrapper {
+  flex-grow: 1;
+}
+
+.tag-buttons-box {
+  background-color: #9f7e8b; /* muted mauve */
+  padding: 1vh 1.5vw;
+  display: flex;
+  gap: 1.5vw;
+  justify-content: center;
+}
+
+.tag-button {
+  background: none;
+  border: none;
+  color: #f5f5f5;
+  font-style: italic;
+  font-size: 1.5vw;
   cursor: pointer;
+  padding: 0.5vw;
+  transition: opacity 0.2s;
 }
 
-.tag-button.active,
-.tag-button:hover,
-.clear-tag-button:hover {
-  background-color: #d5242c;
-  color: #fff;
-  border-color: #d5242c;
+.tag-button:hover {
+  color: #691d34;
+  opacity: 0.75;
 }
+
+.tag-button.active {
+color: #691d34;
+}
+
+
 
 /* ------------------------------------ */
 /* Main Articles Section */
@@ -154,14 +125,14 @@
 }
 
 .article-card:hover {
-  border: 1px solid red;
-  color: #d5242c;
+  border: 3 solid #691d34;
+  color: #691d34;
   transform: translateY(-4px);
 }
 
 .article-card:hover h2,
 .article-card:hover p {
-  color: #d5242c;
+  color: #691d34;
 }
 
 .side-by-side {
@@ -190,7 +161,7 @@
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 10px;
-  color: #d5242c;
+  color: #691d34;
 }
 
 .article-content {
@@ -211,8 +182,8 @@
 .tag {
   font-size: 0.7rem;
   padding: 5px 10px;
-  border: 1px solid #d5242c;
-  color: #d5242c;
+  border: 1px solid #691d34;
+  color: #691d34;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.05em;

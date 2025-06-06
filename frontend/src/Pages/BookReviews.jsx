@@ -1,4 +1,4 @@
-import './Articles.css';
+import './BookReviews.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Highlights from '../Components/Highlights';
@@ -6,7 +6,7 @@ import LogoHeader from '../Components/LogoHeader';
 
 
 
-export default function Articles() {
+export default function BookReviews() {
   const [articles, setArticles] = useState([]);
   const [filteredArticles, setFilteredArticles] = useState([]);
   const [tags, setTags] = useState([]);
@@ -63,7 +63,7 @@ export default function Articles() {
       {/* General Articles Section */}
       <div className="articles-header">
         <div className="page-name">
-          <h1 className="article-page-title">Articles</h1>
+          <h1 className="article-page-title">Book Reviews</h1>
         </div>
 
         <div className="tag-filter">
