@@ -1,8 +1,8 @@
 import './Articles.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import HamburgerNav from '../Components/HamburgerNav';
-import ArticleGrid from '../Components/ArticleGrid';
+import Highlights from '../Components/Highlights';
+import LogoHeader from '../Components/LogoHeader';
 
 
 
@@ -54,37 +54,34 @@ export default function Articles() {
 
   return (
     <div className="articles-page">
-      <HamburgerNav />
+      <LogoHeader />
 
       {/* Highlighted Articles Section */}
-     <ArticleGrid articles={highlights} gridTitle="Highlighted Articles" />
+     <Highlights articles={highlights} />
 
 
       {/* General Articles Section */}
-      <div className="page-name">
-        <h1 className="site-title">Articles</h1>
-      </div>
-
-      <div className="tag-filter">
-        <p>Filter by tag:</p>
-        <div className="tag-buttons">
-          {tags.map(tag => (
-            <button
-              key={tag.id}
-              className={`tag-button ${tag.id === activeTag ? 'active' : ''}`}
-              onClick={() => handleFilter(tag.id)}
-            >
-              {tag.name}
-            </button>
-          ))}
-          <button
-            className="clear-tag-button"
-            onClick={() => handleFilter(activeTag)}
-          >
-            clear
-          </button>
+      <div className="articles-header">
+        <div className="page-name">
+          <h1 className="article-page-title">Articles</h1>
         </div>
-      </div>
+
+        <div className="tag-filter">
+          <div className="tag-buttons-wrapper">
+            <div className="tag-buttons-box">
+              {tags.map(tag => (
+                <button
+                  key={tag.id}
+                  className={`tag-button ${tag.id === activeTag ? 'active' : ''}`}
+                  onClick={() => handleFilter(tag.id)}
+                >
+                  {tag.name.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+    </div>
 
       <main className="articles-container">
         {filteredArticles.map(article => (
