@@ -16,17 +16,16 @@ export default function Articles() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/articles/highlights/')
+      .then(res => res.json())
+      .then(data => setHighlights(data))
+      .catch(err => console.error('Error fetching highlights:', err));
+      
     fetch('http://127.0.0.1:8000/api/articles/')
       .then(res => res.json())
       .then(data => {
         setArticles(data);
         setFilteredArticles(data);
-
-        // Extract highlighted articles by tag name
-        const highlighted = data.filter(article =>
-          article.tags.some(tag => tag.name.toLowerCase() === 'highlight')
-        );
-        setHighlights(highlighted);
       })
       .catch(err => console.error('Error fetching articles:', err));
 
@@ -92,7 +91,11 @@ export default function Articles() {
               )}
               <div className="article-info">
                 <h2 className="article-title">{article.title}</h2>
-                <p className="article-content">{article.description}</p>
+                <p className="article-content">
+                  {article.description.length > 200
+                    ? `${article.description.slice(0, 200)}...`
+                    : article.description}
+                </p>
                 <div className="tag-list">
               {article.tags.map(tag => (
                 <span key={tag.id} className="tag">{tag.name}</span>
