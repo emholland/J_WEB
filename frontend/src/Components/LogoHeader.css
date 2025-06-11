@@ -38,7 +38,7 @@
 }
 
 .nav-left{
-    gap: clamp(0.2rem, 1vw, 1rem);
+    gap: clamp(0.5rem, 2vw, 2rem);
 }
 
 .nav-menu > span {

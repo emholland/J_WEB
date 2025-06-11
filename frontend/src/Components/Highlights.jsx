@@ -22,7 +22,11 @@ export default function Highlights({ articles, gridTitle }) {
             <div className="highlight-card tall-left" onClick={() => navigate(`/articles/${a1.id}`)}>
               {a1.picture && <img src={a1.picture} alt={a1.title} className="article-image" />}
               <h2 className="highlight-title">{a1.title}</h2>
-              <p className="highlight-content">{a1.description}</p>
+              <p className="highlight-content">
+                  {a1.description.length > 200
+                    ? `${a1.description.slice(0, 200)}...`
+                    : a1.description}
+              </p>
               <div className="highlight-tags">
                 {a1.tags.map(tag => <span key={tag.id} className="highlight-tag">{tag.name}</span>)}
               </div>
@@ -33,7 +37,11 @@ export default function Highlights({ articles, gridTitle }) {
             <div className="highlight-card big-center" onClick={() => navigate(`/articles/${a2.id}`)}>
               {a2.picture && <img src={a2.picture} alt={a2.title} className="article-image" />}
               <h2 className="highlight-title">{a2.title}</h2>
-              <p className="highlight-content">{a2.description}</p>
+               <p className="highlight-content">
+                  {a2.description.length > 200
+                    ? `${a2.description.slice(0, 200)}...`
+                    : a2.description}
+              </p>
               <div className="highlight-tags">
                 {a2.tags.map(tag => <span key={tag.id} className="highlight-tag">{tag.name}</span>)}
               </div>
@@ -44,7 +52,11 @@ export default function Highlights({ articles, gridTitle }) {
             <div className="highlight-card small-right-top" onClick={() => navigate(`/articles/${a3.id}`)}>
               {a3.picture && <img src={a3.picture} alt={a3.title} className="article-image" />}
               <h2 className="highlight-title">{a3.title}</h2>
-              <p className="highlight-content">{a3.description}</p>
+               <p className="highlight-content">
+                  {a3.description.length > 200
+                    ? `${a3.description.slice(0, 200)}...`
+                    : a3.description}
+              </p>
               <div className="highlight-tags">
                 {a3.tags.map(tag => <span key={tag.id} className="highlight-tag">{tag.name}</span>)}
               </div>
@@ -55,7 +67,11 @@ export default function Highlights({ articles, gridTitle }) {
             <div className="highlight-card small-right-bottom" onClick={() => navigate(`/articles/${a4.id}`)}>
               {a4.picture && <img src={a4.picture} alt={a4.title} className="article-image" />}
               <h2 className="highlight-title">{a4.title}</h2>
-              <p className="highlight-content">{a4.description}</p>
+               <p className="highlight-content">
+                  {a4.description.length > 200
+                    ? `${a4.description.slice(0, 200)}...`
+                    : a4.description}
+              </p>
               <div className="highlight-tags">
                 {a4.tags.map(tag => <span key={tag.id} className="highlight-tag">{tag.name}</span>)}
               </div>

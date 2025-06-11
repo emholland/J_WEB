@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 /* Reset and base */
 * {
   margin: 0;
@@ -14,7 +16,7 @@ body {
 /* Hero Title */
 .mantis-title {
   font-family: 'Playfair Display', serif;
-  font-style: italic;
+
   font-weight: 100;
   font-size: clamp(3rem, 9vw, 8rem);
   text-align: center;
@@ -44,7 +46,7 @@ body {
 .tagline-text {
   font-size:4vw;
   line-height: 1.1;
-  font-weight: 600;
+  font-weight: 100;
   text-align: right;
 }
 
@@ -60,14 +62,17 @@ body {
   white-space: nowrap;
   background-color: #fdfdfb; /* or any background */
   color: #691d34;
-  font-weight: bold;
-  font-size: 7rem;
+  font-weight: 500;
+  font-size: 10rem;
   padding-top: 6rem;
   position: relative;
   margin-bottom: 1rem;
 }
 
 .scrolling-text {
+
+  font-family: 'Orbitron', sans-serif;
+
   display: inline-block;
   white-space: nowrap;
   padding-left: 100%; /* start offscreen to the right */

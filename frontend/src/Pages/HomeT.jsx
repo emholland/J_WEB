@@ -15,7 +15,7 @@ export default function HomeT() {
         <h1 className="mantis-title">MANTIS REVIEW</h1>
         <div className="tagline-box">
           <div className="tagline-text">
-            <p><strong>Contemporary</strong><br />op-eds &<br />think pieces<br />for the curious<br />mind.</p>
+            <p>Contemporary<br />op-eds &<br />think pieces<br />for the curious<br />mind.</p>
           </div>
           <img src={armImage} alt="moth illustration" className="moth-image" />
         </div>
@@ -23,7 +23,7 @@ export default function HomeT() {
 
       <div className="scrolling-text-wrapper">
         <div className="scrolling-text">
-          <span>REAL NEWS • REAL ANALYSIS • CURIOUS MINDS ONLY • </span>
+          <span>EVERYONE HAS THE RIGHT TO FREEDOM OF OPINION AND EXPRESSION...</span>
         </div>
       </div>
 
