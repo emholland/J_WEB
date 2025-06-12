@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Highlights from '../Components/Highlights';
 import LogoHeader from '../Components/LogoHeader';
+import { apiUrl } from '../api.js'; 
 
 
 
@@ -16,12 +17,12 @@ export default function Articles() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/articles/highlights/')
+    fetch(apiUrl('/api/articles/highlights/'))
       .then(res => res.json())
       .then(data => setHighlights(data))
       .catch(err => console.error('Error fetching highlights:', err));
       
-    fetch('http://127.0.0.1:8000/api/articles/')
+    fetch(apiUrl('/api/articles/'))
       .then(res => res.json())
       .then(data => {
         setArticles(data);
@@ -29,7 +30,7 @@ export default function Articles() {
       })
       .catch(err => console.error('Error fetching articles:', err));
 
-    fetch('http://127.0.0.1:8000/api/tags/')
+    fetch(apiUrl('/api/tags/'))
       .then(res => res.json())
       .then(data => setTags(data))
       .catch(err => console.error('Error fetching tags:', err));
