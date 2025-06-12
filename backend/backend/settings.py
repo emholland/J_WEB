@@ -6,7 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # BASE DIRECTORY
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
 
 # SECURITY
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your-development-secret-key')
@@ -27,6 +28,7 @@ INSTALLED_APPS = [
 
 # MIDDLEWARE
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -45,7 +47,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'backend' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -99,7 +101,9 @@ USE_TZ = True
 
 # STATIC FILES
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'backend' / 'backend' / 'static']      # Where Vite's assets live
+STATIC_ROOT = BASE_DIR / 'backend' / 'backend' /'staticfiles'        # Where collectstatic will dump everything
+
 
 # DEFAULT PRIMARY KEY FIELD TYPE
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -110,5 +114,5 @@ CORS_ALLOWED_ORIGINS = [
 
 # At the bottom of settings.py
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT =  BASE_DIR / "media"
 
