@@ -30,6 +30,8 @@ urlpatterns = [
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
+# ✅ Only catch frontend routes that DON'T start with these
 urlpatterns += [
-    re_path(r'^.*$', TemplateView.as_view(template_name="index.html")),
+    re_path(r'^(?!admin|api|media|static).*$', TemplateView.as_view(template_name="index.html")),
 ]
