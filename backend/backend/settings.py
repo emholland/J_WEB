@@ -64,17 +64,12 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
-# DATABASES (Railway PostgreSQL)
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'railway'),
-        'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
-        'HOST': os.environ.get('DB_HOST', 'caboose.proxy.rlwy.net'),
-        'PORT': os.environ.get('DB_PORT', '27132'),
-    }
+    'default': dj_database_url.config(default=os.getenv("DB_URL"))
 }
+
 
 # PASSWORD VALIDATION
 AUTH_PASSWORD_VALIDATORS = [
