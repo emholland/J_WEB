@@ -3,7 +3,9 @@ Django==4.2.21
 django-cors-headers==4.7.0
 djangorestframework==3.16.0
 dnspython==2.7.0
+gunicorn==23.0.0
 mongoengine==0.29.1
+packaging==25.0
 pillow==11.2.1
 psycopg2-binary==2.9.9
 pymongo==4.13.0
