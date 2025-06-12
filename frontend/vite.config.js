@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
-// https://vite.dev/config/
-export default defineConfig({
+// https://vitejs.dev/config/
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-   base: '/static/',
- build: {
+  base: mode === 'production' ? '/static/' : '/',
+  build: {
     outDir: resolve(__dirname, '../backend/backend/static'),
     emptyOutDir: true,
     assetsDir: 'assets',
@@ -20,4 +20,4 @@ export default defineConfig({
       }
     }
   }
-})
+}));
