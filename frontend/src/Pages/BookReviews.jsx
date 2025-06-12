@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Highlights from '../Components/Highlights';
 import LogoHeader from '../Components/LogoHeader';
+import { apiUrl } from '../api.js';
 
 
 
@@ -15,12 +16,12 @@ export default function BookReviews() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/book-reviews/highlights/')
+    fetch(apiUrl('/api/book-reviews/highlights/'))
       .then(res => res.json())
       .then(data => setHighlights(data))
       .catch(err => console.error('Error fetching highlights:', err));
 
-    fetch('http://127.0.0.1:8000/api/book-reviews/')
+    fetch(apiUrl('/api/book-reviews/'))
       .then(res => res.json())
       .then(data => {
         setBookReviews(data);
