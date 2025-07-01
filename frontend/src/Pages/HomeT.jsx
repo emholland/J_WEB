@@ -4,7 +4,7 @@ import mantisLogo from '../assets/mantisLogo.png'; // use this in place of "moth
 import LogoHeader from '../Components/LogoHeader'; // Assuming you have a LogoHeader component
 import SubscribeBox from '../Components/SubscribeBox';
 import dots from '../assets/dots.png'; // Assuming you have a dots background image
-import FullMantis from '../assets/fullMantis.png'; // Assuming you have a full mantis image
+import FullMantis from '../assets/FullMantis.png'; // Assuming you have a full mantis image
 
 export default function HomeT() {
   const navigate = useNavigate();
