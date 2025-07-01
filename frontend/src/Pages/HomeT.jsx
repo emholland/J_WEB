@@ -4,6 +4,7 @@ import mantisLogo from '../assets/mantisLogo.png'; // use this in place of "moth
 import LogoHeader from '../Components/LogoHeader'; // Assuming you have a LogoHeader component
 import SubscribeBox from '../Components/SubscribeBox';
 import dots from '../assets/dots.png'; // Assuming you have a dots background image
+import FullMantis from '../assets/fullMantis.png'; // Assuming you have a full mantis image
 
 export default function HomeT() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ export default function HomeT() {
         <div className="scrolling-text-background" style={{
           backgroundImage: `url(${dots})`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'auto 79%',
+          backgroundSize: '101% 79%',
           backgroundPosition: 'center',
         }} >
         
@@ -50,9 +51,13 @@ export default function HomeT() {
       </div>
 
       <section className="about-section">
-        <div className="about-left">
-          <h2 className="about-title">ABOUT</h2>
-          <img src="/path-to-your-mantis-side.png" alt="mantis illustration" className="about-image" />
+        <div className="about-left-wrapper">
+          <div className="about-left">
+            <h2 className="about-title">ABOUT</h2>
+            <div className="full-mantis-wrapper">
+              <img src={FullMantis} alt="mantis illustration" className="about-image" />
+            </div>
+          </div>
         </div>
 
         <div className="about-content">
@@ -64,7 +69,7 @@ Proin turpis odio, mattis aliquam arcu in, dapibus varius sapien. Morbi accumsan
         </div>
       </section>
 
-      <SubscribeBox />
+      {/*<SubscribeBox />*/}
 
     </div>
   );

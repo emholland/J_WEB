@@ -1,8 +1,9 @@
-import './Highlights.css';
+import './ArticleHighlights.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import mantisLogo from '../assets/mantisLogo.png'; // use this in place of "moth.png"
 
-export default function Highlights({ articles, gridTitle }) {
+export default function ArticleHighlights({ articles, gridTitle }) {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true); // dropdown initially open
 
@@ -14,6 +15,7 @@ export default function Highlights({ articles, gridTitle }) {
         <h1 className="highlight-dropdown-title">
           <span className="highlight-arrow">{isOpen ? '▼' : '▶'}</span> HIGHLIGHTS
         </h1>
+        <img src={mantisLogo} alt="mantis illustration" className="mantis-head" />
       </div>
 
       {isOpen && (
@@ -49,9 +51,11 @@ export default function Highlights({ articles, gridTitle }) {
           )}
 
           {a3 && (
-            <div className="highlight-card small-right-top" onClick={() => navigate(`/articles/${a3.id}`)}>
-              {a3.picture && <img src={a3.picture} alt={a3.title} className="article-image" />}
-              <h2 className="highlight-title">{a3.title}</h2>
+            <div className="highlight-card small small-right-top" onClick={() => navigate(`/articles/${a3.id}`)}>
+              <div className="small-card-top">
+                {a3.picture && <img src={a3.picture} alt={a3.title} className="article-image small" />}
+                <h2 className="highlight-title">{a3.title}</h2>
+              </div>
                <p className="highlight-content">
                   {a3.description.length > 200
                     ? `${a3.description.slice(0, 200)}...`
@@ -64,9 +68,11 @@ export default function Highlights({ articles, gridTitle }) {
           )}
 
           {a4 && (
-            <div className="highlight-card small-right-bottom" onClick={() => navigate(`/articles/${a4.id}`)}>
-              {a4.picture && <img src={a4.picture} alt={a4.title} className="article-image" />}
-              <h2 className="highlight-title">{a4.title}</h2>
+            <div className="highlight-card small small-right-bottom" onClick={() => navigate(`/articles/${a4.id}`)}>
+              <div className="small-card-top">
+                {a4.picture && <img src={a4.picture} alt={a4.title} className="article-image small" />}
+                <h2 className="highlight-title">{a4.title}</h2>
+              </div>
                <p className="highlight-content">
                   {a4.description.length > 200
                     ? `${a4.description.slice(0, 200)}...`

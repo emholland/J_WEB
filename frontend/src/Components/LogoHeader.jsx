@@ -23,17 +23,13 @@ export default function Header() {
               <div className="works-trigger">
                 <span className="nav-label" onClick={toggleDropdown}>WORKS</span>
               </div>
-              <div className="nav-label-wrapper" onClick={() => { closeDropdown(); navigate('/author');  }}>
-                <span className="nav-label">AUTHOR</span>
-            </div>
 
             </div>
 
             <span className="logo" onClick={() => { closeDropdown(); navigate('/'); }}>M.</span>
 
             <div className="nav-right">
-              <span className="nav-label" onClick={() => { closeDropdown(); navigate('/contact'); }}>CONTACT</span>
-              <span className="nav-label" onClick={() => { closeDropdown(); navigate('/author'); }}>SUBSCRIBE</span>
+              <span className="nav-label" onClick={() => { closeDropdown(); navigate('/author'); }}>FOUNDERS</span>
             </div>
           </nav>
         </div>
@@ -45,7 +41,6 @@ export default function Header() {
                 <div className="dropdown-bar-menu">
                 <span onClick={() => { closeDropdown(); navigate('/articles'); }}>articles</span>
                 <span onClick={() => { closeDropdown(); navigate('/book-reviews'); }}>book reviews</span>
-                <span onClick={() => { closeDropdown(); navigate('/other'); }}>other</span>
                 </div>
             )}
         </div>

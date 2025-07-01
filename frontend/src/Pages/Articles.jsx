@@ -1,7 +1,7 @@
 import './Articles.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Highlights from '../Components/Highlights';
+import ArticleHighlights from '../Components/ArticleHighlights';
 import LogoHeader from '../Components/LogoHeader';
 import { apiUrl } from '../api.js'; 
 
@@ -57,7 +57,7 @@ export default function Articles() {
       <LogoHeader />
 
       {/* Highlighted Articles Section */}
-     <Highlights articles={highlights} />
+     <ArticleHighlights articles={highlights} />
 
 
       {/* General Articles Section */}

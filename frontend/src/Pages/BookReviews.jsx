@@ -1,7 +1,7 @@
 import './BookReviews.css';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Highlights from '../Components/Highlights';
+import BookReviewHighlights from '../Components/BookReviewHighlight.jsx';
 import LogoHeader from '../Components/LogoHeader';
 import { apiUrl } from '../api.js';
 
@@ -35,7 +35,8 @@ export default function BookReviews() {
       <LogoHeader />
 
       {/* Highlighted Articles Section */}
-     <Highlights articles={highlights} />
+      <BookReviewHighlights reviews={highlights} gridTitle="HIGHLIGHTS" />
+
 
 
       {/* General Articles Section */}

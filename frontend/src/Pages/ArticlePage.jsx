@@ -28,7 +28,7 @@ export default function ArticlePage() {
       <div className="article-header-row">
         <div className="article-title-author">
           <h1 className="articlepage-title">{article.title}</h1>
-          <div className="articlepage-author">Author Name</div>
+          <div className="articlepage-author">{article.author}</div>
         </div>
         <div className="articlepage-tag-list">
           {article.tags.map(tag => (

@@ -1,37 +1,39 @@
-.highlight-articles-container{
+.highlight-articles-container {
   padding: 2rem;
   background-color: #fdfdfb;
 }
 
-.highlight-border-container{
-  width:100%;
-  display:flex;
-  justify-content: center;;
+.highlight-border-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.highlight-articles-border{
+
+.highlight-articles-border {
   width: 100%;
   border-bottom: 6px solid #691d34;
-  padding: 1rem;
   background-color: #fdfdfb;
 }
 
-
 .highlight-dropdown {
+  height: 4rem; /* or something appropriate */
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-bottom: 0.5rem;
+  overflow: hidden;
+  position: relative;  /* so mantis-head is positioned relative to this */
 }
 
-.highlight-dropdown-title{
-   font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.5rem;
-    color: #691d34;
-    letter-spacing: 0.34rem;
-    margin: 2rem 2rem 2rem 1rem;
-    text-transform: uppercase;
+.highlight-dropdown-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #691d34;
+  letter-spacing: 0.34rem;
+  margin: 2rem 2rem 2rem 1rem;
+  padding-bottom: 2rem;
+  text-transform: uppercase;
 }
 
 .highlight-arrow {
@@ -40,17 +42,28 @@
   margin-left: 2rem;
 }
 
+.mantis-head {
+  position: absolute;
+  bottom: -60%;        /* move up to peek in */
+  right: 2rem;         /*epending on which side it peeks from */
+  width: clamp(8rem, 20vw, 8rem); /* responsive width */
+  height: auto;
+  z-index: 2;
+  pointer-events: none; /* prevent it from blocking interactions */
+}
+
 /* Wrapper for entire grid area */
 .highlight-grid {
   display: grid;
   grid-template-columns: 1.2fr 3fr 2fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto auto;
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 0;
   padding: 0 1rem;
+  margin-bottom: 1rem;
 }
 
-/* Position-specific grid areas */
+/* Grid placement */
 .tall-left {
   grid-column: 1;
   grid-row: 1 / span 2;
@@ -81,6 +94,8 @@
   justify-content: space-between;
   font-family: 'Georgia', serif;
   cursor: pointer;
+  overflow: hidden;
+  min-width: 20vh;
 }
 
 .highlight-card:hover {
@@ -89,12 +104,29 @@
   transform: scale(1.02);
 }
 
+/* Small card height constraint */
+.highlight-card.small {
+  max-height: 30vw;
+}
+
+.small-card-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* spacing between image and title */
+}
 /* Article image */
 .article-image {
   width: 100%;
-  height: auto;
   max-height: 200px;
-  object-fit: cover;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.article-image.small {
+  width: 30%;
+  max-height:5vw;
+  object-fit: contain;
   margin-bottom: 1rem;
   border-radius: 4px;
 }
@@ -113,8 +145,12 @@
   line-height: 1.6;
   margin-bottom: 12px;
   font-family: 'Times New Roman', serif;
+  max-height: 6rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Tags */
 .highlight-tags {
   display: flex;
   flex-wrap: wrap;
@@ -129,4 +165,9 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+@media (max-width: 590px) {
+  .mantis-head {
+        display: none;
+  }
 }

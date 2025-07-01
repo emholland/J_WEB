@@ -1,7 +1,8 @@
 /* Article detail layout */
 .article-detail-page {
-  max-width: 1000px;
-  margin: 3rem auto;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem;
   font-family: 'DM Sans', sans-serif;
   background: #fdfdfb;
