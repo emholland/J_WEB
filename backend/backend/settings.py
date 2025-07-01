@@ -109,6 +109,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://mantisreview.onrender.com",
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 # At the bottom of settings.py
 MEDIA_URL = '/media/'
 MEDIA_ROOT =  BASE_DIR / "media"
