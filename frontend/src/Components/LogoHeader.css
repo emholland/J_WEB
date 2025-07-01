@@ -92,7 +92,9 @@
 }
 
 .dropdown-bar-menu-container {
-     display: flex;
+    position: relative; /* needed to anchor the absolute dropdown */
+    width: 100%;
+    display: flex;
     justify-content: center; 
 
 }

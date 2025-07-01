@@ -1,8 +1,10 @@
 import './HomeT.css';
 import { useNavigate } from 'react-router-dom';
-import armImage from '../assets/Arm.png'; // use this in place of "moth.png"
+import mantisLogo from '../assets/mantisLogo.png'; // use this in place of "moth.png"
 import LogoHeader from '../Components/LogoHeader'; // Assuming you have a LogoHeader component
 import SubscribeBox from '../Components/SubscribeBox';
+import dots from '../assets/dots.png'; // Assuming you have a dots background image
+import FullMantis from '../assets/fullMantis.png'; // Assuming you have a full mantis image
 
 export default function HomeT() {
   const navigate = useNavigate();
@@ -11,26 +13,51 @@ export default function HomeT() {
     <div className="homepage">
       
     <LogoHeader />
-      <main className="main-hero">
-        <h1 className="mantis-title">MANTIS REVIEW</h1>
+     <main className="main-hero">
+      <div className="hero-border">
+        <div className="mantis-header">
+          <h1 className="mantis-title">MANTIS<br />REVIEW</h1>
+        </div>
+
         <div className="tagline-box">
           <div className="tagline-text">
-            <p>Contemporary<br />op-eds &<br />think pieces<br />for the curious<br />mind.</p>
+            <p>
+              CONTEMPORARY OP-EDS &<br />
+              THINK PIECES FOR<br />
+              THE CURIOUS MIND
+            </p>
+
           </div>
-          <img src={armImage} alt="moth illustration" className="moth-image" />
+          <div className="mantis-image-wrapper">
+            <img src={mantisLogo} alt="mantis illustration" className="mantis-image" />
+          </div>
+        </div>
         </div>
       </main>
 
+
       <div className="scrolling-text-wrapper">
+        <div className="scrolling-text-background" style={{
+          backgroundImage: `url(${dots})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '101% 79%',
+          backgroundPosition: 'center',
+        }} >
+        
         <div className="scrolling-text">
           <span>EVERYONE HAS THE RIGHT TO FREEDOM OF OPINION AND EXPRESSION...</span>
+        </div>
         </div>
       </div>
 
       <section className="about-section">
-        <div className="about-left">
-          <h2 className="about-title">ABOUT</h2>
-          <img src="/path-to-your-mantis-side.png" alt="mantis illustration" className="about-image" />
+        <div className="about-left-wrapper">
+          <div className="about-left">
+            <h2 className="about-title">ABOUT</h2>
+            <div className="full-mantis-wrapper">
+              <img src={FullMantis} alt="mantis illustration" className="about-image" />
+            </div>
+          </div>
         </div>
 
         <div className="about-content">
@@ -42,7 +69,7 @@ Proin turpis odio, mattis aliquam arcu in, dapibus varius sapien. Morbi accumsan
         </div>
       </section>
 
-      <SubscribeBox />
+      {/*<SubscribeBox />*/}
 
     </div>
   );
