@@ -55,7 +55,7 @@ export default function HomeT() {
           <div className="about-left">
             <h2 className="about-title">ABOUT</h2>
             <div className="full-mantis-wrapper">
-              <img src={FullMantis} alt="mantis illustration" className="about-image" />
+
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@
 }
 
 body {
-  background: #fdfdfb;
+  background: #ffffff;
   font-family: 'DM Sans', sans-serif;
   color: #000;
   overflow-x:hidden;
@@ -127,38 +127,30 @@ body {
 
 .about-section {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin: 4rem auto; /* center horizontally */
+  align-items: stretch; /* ✅ Match height between left and right */
+  justify-content: center; /* ✅ Center whole grid horizontally */
+  margin: 4rem auto;
   padding: 2rem;
   max-width: 1500px;
   width: 100%;
   gap: clamp(4rem, 10vw, 5rem);
-  background: #fdfdfb;
+  background: #ffffff;
   position: relative;
-  overflow:visible
+  overflow: visible;
 }
 
-.about-left-wrapper {
-  position: relative;
-  display: flex;
-  width: fit-content;
 
-  /* ✅ The mask that hides only the left edge */
-  mask-image: linear-gradient(to right, transparent 0px, black 40px, black);
-  -webkit-mask-image: linear-gradient(to right, transparent 0px, black 40px, black);
-  mask-repeat: no-repeat;
-  mask-size: 100% 100%;
-}
 
 /* LEFT SIDE: Title + Mantis */
 .about-left {
   position: relative;
   display: flex;
   flex-direction: column;
+   justify-content: center;  /* ✅ Vertically center contents */
   align-items: center;
   overflow: visible; /* ✅ let the image overflow */
-  width: fit-content;
+  flex: 0 0 auto;
+  min-height: 100%;
   z-index: 1;
 }
 
@@ -166,14 +158,13 @@ body {
 .about-title {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: clamp(3rem, 7.5vw, 15vh);
+  font-size: 15vh;
   max-height: 70vw;            
   color: #691d34;
   font-weight: 600;
   font-family: 'Playfair Display', serif;
   margin: 0;
   z-index: 2;
-
 }
 
 /* Mantis image overlapping underneath title */
@@ -196,6 +187,7 @@ body {
   flex: 1 1 300px;
   max-width: 700px;
   min-width: 280px;
+  max-height: 700px;
   border: 4px solid #691d34;
   padding: 2rem;
   margin-bottom: 2rem;
@@ -203,7 +195,6 @@ body {
   font-family: 'DM Sans', sans-serif;
   color: #000;
   text-align: center;
-  margin-right: 10rem;;
 }
 
 
@@ -218,7 +209,7 @@ body {
   .about-title {
     writing-mode: horizontal-tb;
     transform: none;
-    font-size: 3rem;
+    font-size: 15vw;
   }
 
   .about-content {
