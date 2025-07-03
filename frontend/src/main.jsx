@@ -9,6 +9,7 @@ import ResourcePage from './Pages/Resources';
 import ArticlePage from './Pages/ArticlePage';
 import Contact from './Pages/Contact'; 
 import BookReviews from './Pages/BookReviews';
+import BookReviewPage from './Pages/BookReviewPage';
 import './index.css'; // your global styles
 
 
@@ -23,6 +24,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/articles/:id" element={<ArticlePage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/book-reviews" element={<BookReviews />} />
+        <Route path="/book-reviews/:id" element={<BookReviewPage />} />
+
 
       </Routes>
     </BrowserRouter>

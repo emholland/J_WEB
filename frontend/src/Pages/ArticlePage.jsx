@@ -5,10 +5,23 @@ import './ArticlePage.css';
 import LogoHeader from '../Components/LogoHeader'; // Assuming you have a LogoHeader component
 import SubscribeBox from '../Components/SubscribeBox';
 import { apiUrl } from '../api.js'; 
+import MantisLoading from '../Components/MantisLoading';
 
 export default function ArticlePage() {
   const { id } = useParams(); // from route like /articles/:id
   const [article, setArticle] = useState(null);
+
+const formatTextToParagraphs = (text) => {
+  return text
+    .split(/\r?\n\s*\r?\n/) // handles both \n\n and \r\n\r\n
+    .map((paragraph, idx) => (
+      <p key={idx} style={{ marginBottom: '1.5em', lineHeight: '1.6' }}>
+        {paragraph.trim()}
+      </p>
+    ));
+};
+
+
 
   useEffect(() => {
   fetch(apiUrl(`/api/articles/${id}/`))
@@ -20,7 +33,7 @@ export default function ArticlePage() {
     .catch(err => console.error('Error loading article:', err));
 }, [id]);
 
-  if (!article) return <p>Loading...</p>;
+  if (!article) return <MantisLoading />;
 
   return (
     <div className="article-detail-page">
@@ -41,10 +54,9 @@ export default function ArticlePage() {
         </div>
       </div>
 
-      <p className="articlepage-content">{article.content}</p>
+      <div className="articlepage-content">  {formatTextToParagraphs(article.content)}</div>
       
       </div>
-      <SubscribeBox />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import ArticleHighlights from '../Components/ArticleHighlights';
 import LogoHeader from '../Components/LogoHeader';
 import { apiUrl } from '../api.js'; 
+import MantisLoading from '../Components/MantisLoading';
 
 
 

@@ -1,0 +1,30 @@
+/* Add this to your global styles.css or component CSS */
+.mantis-loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+}
+
+.mantis-spinner {
+  width: 100px;
+  height: 100px;
+  animation: spin 1.4s linear infinite;
+}
+
+.mantis-loading-text {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-family: 'Georgia', serif;
+  color: #4e0020;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
