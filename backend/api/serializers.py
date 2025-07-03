@@ -13,8 +13,14 @@ class TagSerializer(serializers.ModelSerializer):
 
 class ArticleSerializer(serializers.ModelSerializer):
     tags = TagSerializer(many=True, read_only=True)
-    picture = serializers.ImageField(use_url=True)
-    
+    picture = serializers.SerializerMethodField()
+
     class Meta:
         model = Article
-        fields =  '__all__'
+        fields = '__all__'
+
+    def get_picture(self, obj):
+        request = self.context.get('request')
+        if request:
+            return request.build_absolute_uri(obj.picture.url)
+        return obj.picture.url
