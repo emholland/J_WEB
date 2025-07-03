@@ -4,8 +4,8 @@ from .models import Article, Tag, BookReview
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'thumbnail','is_highlighted')
-    fields = ('title', 'description', 'picture', 'content', 'tags', 'is_highlighted')
+    list_display = ('title', 'author', 'created_at', 'thumbnail','is_highlighted')
+    fields = ('title', 'author', 'description', 'picture', 'content', 'tags', 'is_highlighted')
     actions = ['mark_as_highlighted']
     filter_horizontal = ('tags',)
     list_filter = ['is_highlighted']
