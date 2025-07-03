@@ -26,6 +26,27 @@ export default function AuthorInfo() {
 
           </div>
         </div>
+        
+      </main>
+      <main className="author-main reverse">
+        <div className="author-left">
+          <div className="author-right">
+            <h1 className="author-name">ELISA HOLLAND</h1>
+            <p className="author-bio">
+              Passionate about clean, elegant interfaces and full-stack problem-solving. Elisa builds responsive web apps using React, Django, and PostgreSQL—and enjoys collaborating across design, engineering, and content to bring projects to life. When not coding, she’s likely biking, sketching, or obsessing over typography.
+            </p>
+            <div className="author-links">
+              <a href="https://www.linkedin.com/in/elisa-holland-a33a76208">LINKEDIN</a>
+              <a href="mailto:emholland6@gmail.com">emholland6@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="author-right">
+          <div className="author-image-frame">
+            <img src={authorImage} alt="Elisa Holland" className="author-photo" />
+          </div>
+        </div>
       </main>
     </div>
   );

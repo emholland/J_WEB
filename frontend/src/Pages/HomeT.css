@@ -187,7 +187,7 @@ body {
   flex: 1 1 300px;
   max-width: 700px;
   min-width: 280px;
-  max-height: 700px;
+  height: auto;         
   border: 4px solid #691d34;
   padding: 2rem;
   margin-bottom: 2rem;
@@ -200,10 +200,17 @@ body {
 
 /* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
+  .main-hero {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+  }
   .about-section {
+    padding-top: 0;
+    margin-top: 0;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap:5vh;
   }
 
   .about-title {
@@ -214,9 +221,17 @@ body {
 
   .about-content {
     max-width: 90%;
+    font-size: .7rem;
+    height: auto;     
   }
 
   .about-image {
     width: 150px;
+  }
+
+  .scrolling-text-wrapper {
+    padding-top: 0;;
+    font-size: 8rem;
+    margin-bottom: 10vh;
   }
 }
