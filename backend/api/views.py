@@ -14,6 +14,10 @@ class TagListAPIView(generics.ListAPIView):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
 
+    def get(self, request, *args, **kwargs):
+        logger.warning("🚨 HIT TAG LIST API VIEW")
+        return super().get(request, *args, **kwargs)
+
 
 class ArticleList(generics.ListCreateAPIView):
     queryset = Article.objects.all()
