@@ -28,8 +28,8 @@ INSTALLED_APPS = [
 
 # MIDDLEWARE
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -106,7 +106,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "https://j-web.onrender.com",
-    "https://mantisreview.onrender.com",
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True

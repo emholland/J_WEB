@@ -80,7 +80,7 @@
 .tag-button {
   background: none;
   border: none;
-  color: #f5f5f5;
+  color: #ffffff;
   font-style: italic;
   font-size: 1.5vw;
   cursor: pointer;
@@ -113,7 +113,7 @@ color: #691d34;
 }
 
 .article-card {
-  background-color: #fff;
+  background-color: #ffffff;
   border: 2px solid #000;
   padding: 24px;
   display: flex;
@@ -206,4 +206,5 @@ color: #691d34;
   .article-info {
     width: 100%;
   }
+
 }

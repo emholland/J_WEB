@@ -29,7 +29,7 @@ export default function Header() {
             <span className="logo" onClick={() => { closeDropdown(); navigate('/'); }}>M.</span>
 
             <div className="nav-right">
-              <span className="nav-label" onClick={() => { closeDropdown(); navigate('/author'); }}>FOUNDERS</span>
+              <span className="nav-label" onClick={() => { closeDropdown(); navigate('/author'); }}>CREATORS</span>
             </div>
           </nav>
         </div>
