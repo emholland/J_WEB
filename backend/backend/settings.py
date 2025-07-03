@@ -114,6 +114,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 MEDIA_URL = '/media/'
 MEDIA_ROOT =  BASE_DIR / "media"
 
+import os
+if not DEBUG:
+    BASE_URL = "https://j-web.onrender.com"
+else:
+    BASE_URL = "http://127.0.0.1:8000"
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
