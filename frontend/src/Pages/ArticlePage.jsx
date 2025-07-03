@@ -4,17 +4,21 @@ import { useParams } from 'react-router-dom';
 import './ArticlePage.css';
 import LogoHeader from '../Components/LogoHeader'; // Assuming you have a LogoHeader component
 import SubscribeBox from '../Components/SubscribeBox';
+import { apiUrl } from '../api.js'; 
 
 export default function ArticlePage() {
   const { id } = useParams(); // from route like /articles/:id
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/articles/${id}/`)
-      .then(res => res.json())
-      .then(data => setArticle(data))
-      .catch(err => console.error('Error loading article:', err));
-  }, [id]);
+  fetch(apiUrl(`/api/articles/${id}/`))
+    .then(res => {
+      if (!res.ok) throw new Error(`Failed to fetch article ${id}`);
+      return res.json();
+    })
+    .then(data => setArticle(data))
+    .catch(err => console.error('Error loading article:', err));
+}, [id]);
 
   if (!article) return <p>Loading...</p>;
 
