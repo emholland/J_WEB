@@ -22,7 +22,7 @@ export default function AuthorInfo() {
           </p>
           <div className="author-links">
             <a href="https://www.linkedin.com/in/josephinemayer/">LINKEDIN</a>
-            <a href="mailto:ajosephinemayer@gmail.com">ajosephinemayer@gmail.com</a>
+            <a href="mailto:ajosephinemayer@gmail.com">AJOSEPHINEMAYER@GMAIL.COM</a>
 
           </div>
         </div>
@@ -37,7 +37,7 @@ export default function AuthorInfo() {
             </p>
             <div className="author-links">
               <a href="https://www.linkedin.com/in/elisa-holland-a33a76208">LINKEDIN</a>
-              <a href="mailto:emholland6@gmail.com">emholland6@gmail.com</a>
+              <a href="mailto:emholland6@gmail.com">EMHOLLAND6@GMAIL.COM</a>
             </div>
           </div>
         </div>

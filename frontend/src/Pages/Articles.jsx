@@ -5,6 +5,7 @@ import ArticleHighlights from '../Components/ArticleHighlights';
 import LogoHeader from '../Components/LogoHeader';
 import { apiUrl } from '../api.js'; 
 import MantisLoading from '../Components/MantisLoading';
+import { getCache, setCache } from '../storage.js';
 
 
 
@@ -14,30 +15,58 @@ export default function Articles() {
   const [tags, setTags] = useState([]);
   const [activeTag, setActiveTag] = useState(null);
   const [highlights, setHighlights] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(apiUrl('/api/articles/highlights/'))
-      .then(res => res.json())
-      .then(data => setHighlights(data))
-      .catch(err => console.error('Error fetching highlights:', err));
-      
-    fetch(apiUrl('/api/articles/'))
-      .then(res => res.json())
-      .then(data => {
-        setArticles(data);
-        setFilteredArticles(data);
-      })
-      .catch(err => console.error('Error fetching articles:', err));
+    const fetchAllData = async () => {
+      try {
+        const cachedArticles = getCache('articles');
+        const cachedHighlights = getCache('highlights');
+        const cachedTags = getCache('tags');
 
-    fetch(apiUrl('/api/tags/'))
-      .then(res => res.json())
-      .then(data => setTags(data))
-      .catch(err => console.error('Error fetching tags:', err));
+        if (cachedArticles && cachedHighlights && cachedTags) {
+          setArticles(cachedArticles);
+          setFilteredArticles(cachedArticles);
+          setHighlights(cachedHighlights);
+          setTags(cachedTags);
+          setLoading(false);
+          return;
+        }
+
+        const [highlightsRes, articlesRes, tagsRes] = await Promise.all([
+          fetch(apiUrl('/api/articles/highlights/')),
+          fetch(apiUrl('/api/articles/')),
+          fetch(apiUrl('/api/tags/'))
+        ]);
+
+        const [highlightsData, articlesData, tagsData] = await Promise.all([
+          highlightsRes.json(),
+          articlesRes.json(),
+          tagsRes.json()
+        ]);
+
+        setHighlights(highlightsData);
+        setArticles(articlesData);
+        setFilteredArticles(articlesData);
+        setTags(tagsData);
+
+        // Cache for 15 minutes
+        setCache('highlights', highlightsData, 15);
+        setCache('articles', articlesData, 15);
+        setCache('tags', tagsData, 15);
+      } catch (err) {
+        console.error('Error loading data:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAllData();
   }, []);
 
-  const handleFilter = (tagId) => {
+ const handleFilter = (tagId) => {
     if (tagId === activeTag) {
       setFilteredArticles(articles);
       setActiveTag(null);
@@ -49,9 +78,8 @@ export default function Articles() {
       setActiveTag(tagId);
     }
   };
-
   
-
+if (loading) return <MantisLoading />;
 
   return (
     <div className="articles-page">
@@ -93,6 +121,7 @@ export default function Articles() {
               )}
               <div className="article-info">
                 <h2 className="article-title">{article.title}</h2>
+                <p className="highlight-author">By {article.author}</p>
                 <p className="article-content">
                   {article.description.length > 200
                     ? `${article.description.slice(0, 200)}...`

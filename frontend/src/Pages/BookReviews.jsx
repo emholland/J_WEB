@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import BookReviewHighlights from '../Components/BookReviewHighlight.jsx';
 import LogoHeader from '../Components/LogoHeader';
 import { apiUrl } from '../api.js';
+import MantisLoading from '../Components/MantisLoading.jsx';
+import { getCache, setCache } from '../storage.js';
 
 
 
@@ -12,23 +14,52 @@ export default function BookReviews() {
   const [tags, setTags] = useState([]);
   const [activeTag, setActiveTag] = useState(null);
   const [highlights, setHighlights] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch(apiUrl('/api/book-reviews/highlights/'))
-      .then(res => res.json())
-      .then(data => setHighlights(data))
-      .catch(err => console.error('Error fetching highlights:', err));
 
-    fetch(apiUrl('/api/book-reviews/'))
-      .then(res => res.json())
-      .then(data => {
-        setBookReviews(data);
-      })
-      .catch(err => console.error('Error fetching book reviews:', err));
+    useEffect(() => {
+    const fetchAllData = async () => {
+      try {
+        const cachedReviews = getCache('bookReviews');
+        const cachedHighlights = getCache('bookHighlights');
 
+        if (cachedReviews && cachedHighlights) {
+          setBookReviews(cachedReviews);
+          setHighlights(cachedHighlights);
+          setLoading(false);
+          return;
+        }
+
+        const [highlightsRes, reviewsRes] = await Promise.all([
+          fetch(apiUrl('/api/book-reviews/highlights/')),
+          fetch(apiUrl('/api/book-reviews/'))
+        ]);
+
+        const [highlightsData, reviewsData] = await Promise.all([
+          highlightsRes.json(),
+          reviewsRes.json()
+        ]);
+
+        setBookReviews(reviewsData);
+        setHighlights(highlightsData);
+
+        // Cache for 15 minutes
+        setCache('bookReviews', reviewsData, 15);
+        setCache('bookHighlights', highlightsData, 15);
+      } catch (err) {
+        console.error('Error fetching book review data:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAllData();
   }, []);
+
+  if (loading) return <MantisLoading />;
+
 
   return (
     <div className="articles-page">

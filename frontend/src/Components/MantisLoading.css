@@ -1,20 +1,24 @@
-/* Add this to your global styles.css or component CSS */
 .mantis-loading-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 40vh;
+  text-align: center;
+  z-index: 9999; /* make sure it's above everything */
+  animation: fadeIn 0.5s ease-in-out;
 }
 
+
 .mantis-spinner {
-  width: 100px;
-  height: 100px;
-  animation: spin 1.4s linear infinite;
+    width: clamp(80px, 15vw, 150px); /* Responsive between 80–150px */
+    animation: spin 3s linear infinite;
 }
 
 .mantis-loading-text {
-  margin-top: 1rem;
+  margin-top: 2rem;
   font-size: 1.2rem;
   font-family: 'Georgia', serif;
   color: #4e0020;
