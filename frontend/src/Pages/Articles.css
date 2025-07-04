@@ -125,7 +125,7 @@ color: #691d34;
 }
 
 .article-card:hover {
-  border: 3 solid #691d34;
+  border: 3px solid #691d34;
   color: #691d34;
   transform: translateY(-4px);
 }

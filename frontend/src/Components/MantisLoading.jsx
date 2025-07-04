@@ -1,8 +1,11 @@
+import mantisLogo from '../assets/mantisLogo.png';
+import './MantisLoading.css';
+
 const MantisLoading = () => {
   return (
     <div className="mantis-loading-wrapper">
       <img
-        src="/mantis.png"
+        src={mantisLogo}
         alt="Loading mantis"
         className="mantis-spinner"
       />
